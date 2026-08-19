@@ -1,0 +1,708 @@
+/* lato-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/lato-v24-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* lato-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/lato-v24-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* lato-900 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/lato-v24-latin-900.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+                // z-index system:
+                //     -1 → фон
+                //     0 → базові блоки сторінки (wrapper)
+                //     10 → header, nav, sticky елементи
+                //     20 → модальні вікна, dropdown, tooltip
+                //     30 → overlay, alert, глобальні повідомлення
+ 
+
+
+
+                                                            // wrapper , body, container
+
+.wrapper {
+    min-height: 100vh; // вся висота екрана, щоб футер завжди був внизу
+    display: flex;
+    flex-direction: column;
+
+    // padding: 0 20px;
+
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 18px;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        h1, h2{
+            font-size: clamp(24px, 4vw, 32px);
+        }
+    }
+}
+
+body {
+    position: relative;
+    height: 100vh;
+   
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+
+        background: url(../img/Hero.png) no-repeat center;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.container {
+    max-width: 1060px;
+    margin: 0px auto;
+    width: 100%; // адаптивність, щоб працювало на мобільних
+
+    padding: 0 20px; 
+
+    &--wide {
+        max-width: 1262px;
+    }
+
+    &--full {
+        max-width: 100%;
+        padding: 0 0;
+    }
+}
+                                                            // утиліти (зовнішні віступи блоків)
+
+.mt-47 {
+    margin-top: 47px;
+    @media (max-width: 768px) {
+        margin-top: 10px;
+    }
+}
+.mt-59 {    
+    margin-top: 59px;
+}
+.mt-130 {   margin-top: 130px;}
+.mt-138 {   margin-top: 138px;}
+.mt-152 {   
+    margin-top: 152px;
+    @media (max-width: 768px) {
+        margin-top: 100px;
+    }
+}
+.mt-173 {  
+    margin-top: 173px;
+    @media (max-width: 768px) {
+        margin-top: 70px;
+    }
+}
+
+                                                            // загальні стилі
+        
+.learn-more {
+    display: inline-block;
+    
+    font-size: 16px;
+    line-height: 38px;
+    text-transform: uppercase;
+    color: #006DFE;
+
+
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 60px;
+        height: 20px;
+        background: url(../img/Shape.png) no-repeat 20px 10px;
+
+    }
+    &:hover, &:focus, &:active {
+        opacity: 0.6;
+        transition: 0.5s;
+    }
+}
+
+.section-title {
+    font-size: 35px;
+    color: #102746;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 253px;
+        height: 3px;
+
+        border-radius: 10px;
+        background-color: #006DFE;
+
+    }
+}
+
+
+                                                                    // header start
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    &__logo {
+
+        &:hover {
+            opacity: 0.7;
+            transition: 0.7s;
+        }
+    }
+}
+
+                                                    // menu
+.menu {
+    .menu__list {
+        display: flex;
+        gap: 82px;
+        color: #FFFFFF;
+
+        @media(max-width: 540px) {
+            display: none;
+        }
+    }
+
+    .menu__item {
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.5;
+            transition: 0.7s;
+        }
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+
+    .menu__link {
+        display: block;
+        line-height: 50px;
+        color: inherit; 
+    }
+}
+
+                                                                    // header end
+
+                                                                    // main start
+
+
+.hero {
+    color: #FFFFFF;
+
+    &__title {
+        max-width: 619px;
+
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 60px;
+
+        @media(max-width: 400px) {
+            line-height: 40px;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 22px;
+        max-width: 546px;
+
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+                                        // search 
+.search {
+    color: #FFFFFF;
+
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+
+        @media(max-width: 400px) {
+            gap: 30px;
+        } 
+    }
+
+    &__input {
+        max-width: 297px;
+        width: 100%;
+        height: 49px;
+
+        font-size: inherit;
+        color: inherit;
+        background: transparent url("../img/svg/Oval.svg") no-repeat left top;
+        
+        padding: 0 0 22px 44px;
+        border-bottom: 2px solid #BFC0C5;
+        opacity: 0.6;
+        &:hover, &:focus, &:active {
+        opacity: 1;
+        transition: 0.5s;
+        background: transparent url("../img/area/comment.svg") no-repeat 5px 4px;
+    }
+        &::placeholder {
+            color: inherit;
+        }  
+    }
+
+    &__button {
+        padding: 15px 39px;
+        background: linear-gradient(
+            180deg,
+            rgba(8, 77, 126, 0) 0%,
+            rgba(8, 77, 126, 0.42) 100%
+            ),
+            rgb(45, 119, 204);
+            
+        font-size: 24px;
+        color: inherit;
+        text-transform: uppercase;
+
+        &:hover {
+            transition: 0.5s;
+            background-color: #378dfd;
+
+           
+        }
+    }
+}
+
+
+.benefits {
+    max-width: 1262px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding-bottom: 111px;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 8px rgb(233, 229, 229);
+
+    @media (max-width: 768px) {
+        padding-bottom: 40px;
+    }
+    
+    &__title {
+        padding-top: 93px;
+        font-size: 35px;
+
+        @media(max-width: 380px) {
+            padding-top: 10px;
+        } 
+    }
+
+    &__list {
+        display: flex;
+        gap: 55px;
+
+        margin-top: 120px;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__item {
+        max-width: 317px;
+        width: 100%;
+        flex: 1 0 29%;
+    }
+
+    &__icon {
+        width: 66px;
+        height: 66px;
+    }
+
+    &__item-title {
+        margin-top: 37px;
+
+        font-weight: 700;
+    }
+
+    &__item-subtitle {
+        margin-top: 26px;
+
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &__learn-more {
+        margin-top: 39px;
+        color: #006DFE;
+    }
+}
+
+.places {
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__learn-more {
+        color: #006DFE;
+    }
+
+    &__list-up {
+        display: flex;
+        gap: 10px;
+        margin-top: 36px;
+    }
+
+    &__list-down {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    &__item {
+        position: relative;
+        overflow: hidden; 
+        
+
+        &:hover .places__img {
+            transform: scale(1.05);             
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(21, 24, 36, 0.4);
+            
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+        &--up {
+            flex: 1 1 50%;
+            aspect-ratio: 16/9;
+        }
+        &--down {
+            flex: 1 1 33.333%;
+            aspect-ratio: 3/2;
+        }
+        
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        
+
+        transition: .15s ease-in-out;       
+    }
+
+    &__caption {
+        position: absolute;
+        bottom: 27px;
+        left: 29px;
+        color: #fff;
+        font-size: 50px;
+        font-weight: 700;
+        z-index: 2;
+    }
+}
+
+.neighborhood {
+     &__card {
+        display: flex;
+        justify-content: space-between;
+        gap: 108px;     
+        flex-wrap: wrap;   
+    }
+
+    &__img-wrapper {
+        position: relative;
+        overflow: hidden;       
+
+        aspect-ratio: 16/9;       
+        flex: 1 0 45%;
+
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .15s ease-in-out;
+       
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    &__content {
+        margin-top: 26px;
+        padding-right: 45px;
+        flex: 1 0 45%;
+
+    }
+    &__title {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    &__subtitle {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    &__card--first &__subtitle {
+        margin-top: 85px;
+    }
+    &__card--first &__learn-more {
+        margin-top: 58px;
+    }
+    &__card--second &__subtitle {
+        margin-top: 45px;
+    }
+    &__card--second &__learn-more {
+        margin-top: 94px;
+    }
+    &__card--second {
+        margin-top: 76px;
+    }
+}
+
+.area { 
+    &__row {
+        display: flex;
+        flex-wrap: wrap ;
+        gap: 55px;
+
+        margin-top: 64px;
+    }
+    &__card {
+        flex: 1 1 30%;
+    }
+    &__img-wrapper {
+        aspect-ratio: 2/2;
+        position: relative;
+        overflow: hidden;
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .15s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+    }
+    &__caption {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 2;
+
+        width: 100%;
+        height: 55px;
+        background-color: rgba(21, 24, 36, 0.6);
+
+        padding: 0 25px;
+        color: #fff;
+    }
+    &__caption-stats {
+        display: flex;
+        gap: 12px;
+
+        font-size: 16px;
+    }
+    &__likes {
+        &::after {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 15px;
+            background: url(/img/area/like.svg) no-repeat 5px 1px;
+           
+        }
+    }
+    &__coments {
+         &::after {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            background: url(/img/area/comment.svg) no-repeat 7px 3px;    
+        }
+    }
+    &__text {
+        font-size: 16px;
+        line-height: 24px;
+
+        margin-top: 45px;
+    }
+    &__button-see-more {
+        margin-top: 30px;
+        padding: 12px 19px;
+        color: #fff;
+        background: linear-gradient(
+            180deg,
+            rgba(8, 77, 126, 0) 0%,
+            rgba(8, 77, 126, 0.42) 100%
+            ),
+            rgb(45, 119, 204);
+        font-size: 16px;
+        text-transform: uppercase;
+
+        &:hover {
+            transition: 0.5s;
+            background-color: #378dfd;
+        }
+    }
+}
+
+.video-block {
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 5 / 2;
+  }
+
+  &__wrapper iframe {
+    position: absolute;
+    top: 1px;  // frame себе дивно поводить і треба 1px знизу щоб закрити пустоту
+    // top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block; 
+  }
+}
+                                                            // main end
+
+                                                            // footer start
+                                                            
+.footer {
+    background-color: rgba(14, 29, 40, 1);
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+
+        margin-top: 120px;
+        margin-bottom: 120px;
+
+        @media(max-width: 900px){
+            flex-direction: column;
+            align-items: center;
+
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+    }
+
+    &__logo {
+        &:hover {
+            opacity: 0.7;
+            transition: 0.7s;
+        }
+    }
+}
+
+.footer-nav {
+    display: flex;
+    gap: 138px;
+    flex-wrap: wrap;
+
+    @media(max-width: 900px){
+        justify-content: center;
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+    &__card {
+        color: rgba(255, 255, 255, 1);
+        line-height: 28px;
+    }
+    &__title {
+        font-weight: 700;
+        white-space: nowrap;
+        font-size: 18px;
+    }
+    &__link {
+        color: inherit;
+        font-size: 16px;
+        white-space: nowrap;
+
+        &:hover {
+            opacity: 0.5;
+            transition: 0.7s;
+        }
+    }
+}
+
+                                                            // footer end
+
+
+
+    // ти будеш: 
+    // Дослівно перевіряти кожен клас, селектор і SCSS-властивість. 
+    // Аналізувати БЕМ, семантику і вкладеність без припущень. 
+    // Виявляти дублікати, неправильні модифікатори і нечитабельну структуру. 
+    // Відокремлювати логіку від дизайну, щоб рекомендації були точні.                                                          
+        
+
+     // і найди нормальний ai
