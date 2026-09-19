@@ -128,6 +128,8 @@ function showMessage3 (text, count = 0){
 }
 let timeId = setTimeout(showMessage3, 1000, "hello");                 // викликає функцію з інтервалом часу 1000мл секунд
 clearTimeout(timeId);  // зупиняє setTimeout
+console.log("");
+console.log("");
 console.log("---------------------------------OBJECT------------------------------");
 
 // обєкти
@@ -224,3 +226,56 @@ console.log(new UserInfo("hello"));
 
 let variable = new UserInfo("helo");
 console.log(variable);
+
+console.log("");
+console.log("");
+
+console.log("-------------------------------Number-------------------------------");
+
+let num1 = 1e6;   // 1 000 000
+let num2 = 1e-6;  // 0. 000 001
+
+let num = 45;  // в кожній системі (16ткова система числення, 8-кова, бінарна)
+console.log(num.toString(16));
+console.log(num.toString(8));
+console.log(num.toString(2));
+console.log("                  --------Math-------------");
+
+let numOne = Math.floor(5.7);             // округлення в меншу сторону
+let numTwo = Math.ceil(5.3);              // округлення в більшу сторону
+let numThree = Math.round(5.7);           // округлення нормально
+console.log(numOne, numTwo, numThree);
+console.log("");
+
+console.log(Math.random());          // від 0 (включно) до 1 (не включно)
+console.log(Math.min(5, 12, -24));
+console.log(Math.max(5, 12, -24));
+console.log(Math.abs(-54));           // модуль, тобто без -
+console.log(Math.pow(3,2));           // степінь 3^2
+console.log(Math.sqrt(44));           // корінь
+console.log("");
+
+
+num = Math.round(5.456 * 100) / 100;   // якщо треба не округлювати до цілих, змінювати треба 10 залежно наскільки хочеш
+console.log(num);
+console.log(Number((5.45).toFixed(1)))  // toFixed - округлення і скільки чисел після коми, треба писати Number бо видає результат в string - "5.5"
+console.log("");
+
+
+console.log(Number(25 + "Nihhha"));    // NaN
+console.log(isNaN(25 + "Nihhha"));     // true
+console.log(NaN === NaN);              // false бо NaN кожний має унікальні значення
+console.log("");
+
+
+console.log(isFinite("25"));            // "25" -> 25 -> true
+console.log(isFinite ("Hello!"));       // NaN -> false
+console.log(isFinite (10 / 0));         // Infinity -> false
+console.log("");
+
+let str = "158.56px";
+console.log(parseInt(str));     // витягує число до моменту помилки, але тільки до цілого значення
+console.log(parseFloat(str));   // витягує з числами після коми
+console.log("");
+
+
